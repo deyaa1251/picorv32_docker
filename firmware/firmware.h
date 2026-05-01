@@ -40,4 +40,7 @@ void multest(void);
 // stats.c
 void stats(void);
 
+// game.c
+void game(void);
+
 #endif

@@ -11,6 +11,7 @@
 #define ENABLE_SIEVE
 #define ENABLE_MULTST
 #define ENABLE_STATS
+#define ENABLE_GAME
 
 #ifndef ENABLE_QREGS
 #  undef ENABLE_RVTST
@@ -37,6 +38,7 @@
 	.global hard_rem
 	.global hard_remu
 	.global stats
+	.global game
 
 reset_vec:
 	// no more than 16 bytes here !
@@ -475,6 +477,11 @@ start:
 #ifdef ENABLE_STATS
 	/* call stats C code */
 	jal ra,stats
+#endif
+
+#ifdef ENABLE_GAME
+	/* call Conway's Game of Life */
+	jal ra,game
 #endif
 
 	/* print "DONE\n" */
